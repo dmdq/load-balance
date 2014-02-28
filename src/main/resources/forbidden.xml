@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forbidden>
+	<!--优先读取白名单内可以访问的ip、域名列表、再过滤黑名单中得对象,解析顺序都是从上而下,*代表通配 -->
+
+	<!--白名单(只允许以下IP访问) -->
+	<whites>
+<!-- 		<white>192.168.0.*</white>
+		<white>192.168.1.*</white>
+		<white-between>1.1.*.1 - 2.2.2.2</white-between> -->
+		<white-between>*.*.*.* - *.*.*.*</white-between>
+	</whites>
+
+	<!--黑名单(限制以下IP访问) -->
+	<blacks>
+		<back>8.8.8.8</back>
+		<back>9.9.9.9</back>
+		<black-between>9.9.9.9 - 99.99.99.*</black-between>
+	</blacks>
+
+</forbidden>

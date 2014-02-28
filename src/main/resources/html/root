@@ -1,0 +1,214 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/resources/styles/balance.css" />
+<script type="text/javascript" src="/resources/scripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/resources/scripts/common-base.js"></script>
+<script type="text/javascript" src="/resources/scripts/balance.js"></script>
+<script type="text/javascript" src="/resources/scripts/layer/layer.js"></script>
+ 
+<script type="text/javascript">
+var current_app_uuid = null;
+var current_region_uuid = null;
+var current_server_uuid = null;
+/**
+ * 初始化
+ */
+$(function(){
+
+		//输入框默认事件
+		$('input:text').each(function(){
+			var txt = $(this).val();
+			$(this).focus(function(){
+				if(txt === $(this).val()) $(this).val("");
+			}).blur(function(){
+				if($(this).val() == "") $(this).val(txt);
+			});
+		});	
+		$(".display").blur(function(){
+			change_display(this);
+		});
+		$(".forbidden").change(function(){
+			var value = $(this).val();
+			//父类的id
+			var p_id = $(this).parent().parent().parent().parent().attr("id");
+			$("#forbidden_from").val(p_id);
+			if(parseInt(value)!=0){
+				show_forbidden();
+			}
+		});
+		$(".add_forbidden_between").click(function(){
+			add_forbidden_between(this);
+		});
+		$(".drop_forbidden_between").click(function(){
+			drop_forbidden_between(this);
+		});
+		$(".add_forbidden_config").click(function(){
+			add_forbidden_config(this);
+		});
+		$(".drop_forbidden_config").click(function(){
+			drop_forbidden_config(this);
+		});
+});
+
+
+</script>
+
+</head>
+<body>
+	<div id="userPannel">
+    	<ul class="reg">
+    		<li id="actionMsg"></li>
+    		<li><label>用户:</label><input type="text" value="" id="user_name" class=""/></li>
+			<li><label>密码:</label><input type="password" value="" id="user_password" /></li>
+			<li><button onclick="register()" class="action_btn register">注册</button><button onclick="login()" class="action_btn login">登陆</button></li>
+    	</ul>
+    </div>
+    
+		<div id="status" style="display:none;">
+		欢迎您:<span id="welcome_user">root</span>
+		
+		当前位置:<span id="place_app"></span> &gt; <span id="place_region"></span> &gt; <span id="place_server"></span>
+		</div>
+		<div id="main" style="display:none;">
+		<!-- 应用列表 -->
+		<div id="apps">
+			<ul class="loadinfo">
+				<li class="frist">
+					<a href="javascript:;" onclick="refresh(this)" title="刷新" class="refresh">刷新</a>
+					<div class="notice">应用名称</div>
+					<div class="notice action">
+						<input type="text" class="name" value="名称"/>
+						<input type="text" class="order" value="序号"/>
+						<input type="hidden" class="forbidden_type" value="0" />
+						<input type="hidden" class="forbidden_value" value="" />
+						<button onclick="edit_forbidden(this);" class="action_btn" style="display:none;">不过滤</button>
+						<button onclick="add(this);" class="action_btn">添加</button>
+						<span class="pannel">
+							<a href="javascript:" class="hide hide_ico" onclick="show(this)">显示</a>
+							<a href="javascript:" class="show show_ico" onclick="hide(this)">隐藏</a>
+						</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- -->
+		<!-- 分割线 -->
+		<div class="split"></div>
+		<!-- 分区列表开始 -->
+		<div id="regions">
+			<ul class="loadinfo">
+				<li class="frist">
+					<a href="javascript:;" onclick="refresh(this)" title="刷新" class="refresh">刷新</a>
+					<div class="notice">分区名称</div>
+					<div class="notice action">
+						<input type="text" class="name" value="名称"/>
+						<input type="text" class="order" value="序号"/>
+						<input type="hidden" class="forbidden_type" value="0" />
+						<input type="hidden" class="forbidden_value" value="" />
+						<button onclick="edit_forbidden(this);" class="action_btn">不过滤</button>
+						<button onclick="add(this);" class="action_btn">添加</button>
+						<span class="pannel">
+							<a href="javascript:" class="hide hide_ico" onclick="show(this)">显示</a>
+							<a href="javascript:" class="show show_ico" onclick="hide(this)">隐藏</a>
+						</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- 分区列表结束-->
+		<!-- 分割线 -->
+		<div class="split"></div>
+		<!-- 服务器列表开始 -->
+		<div id="servers">
+			<ul class="loadinfo">
+				<li class="frist">
+					<a href="javascript:;" onclick="refresh(this)" title="刷新" class="refresh">刷新</a>
+					<div class="notice">服务器名称</div>
+					<div class="notice action">
+						<input type="text" class="version" value="版本号"/>
+						<input type="text" class="name" value="名称"/>
+						<input type="text" class="order" value="序号"/>
+						<input type="hidden" class="forbidden_type" value="0" />
+						<input type="hidden" class="forbidden_value" value="" />
+						<button onclick="edit_forbidden(this);" class="action_btn">不过滤</button>
+						<button onclick="add(this);" class="action_btn">添加</button>
+						<span class="pannel">
+							<a href="javascript:;" class="hide hide_ico" onclick="show(this);">显示</a>
+							<a href="javascript:;" class="show show_ico" onclick="hide(this);">隐藏</a>
+						</span>		
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- 服务器列表结束 -->
+		<!-- 分割线 -->
+		<div class="split"></div>
+		<!-- 进程列表开 -->
+		<div id="process">
+			<ul class="loadinfo">
+				<li class="frist" lang="keep">
+					<div class="notice uuid" >进程ID</div>
+					<div class="notice edit_process" >序号</div>
+					<div class="notice edit_process" >主机地址</div>
+					<div class="notice edit_process" >主机端口</div>
+					<div class="notice edit_process" >使用内存</div>
+					<div class="notice edit_process" >在线人数</div>
+				</li>
+				<li class="second" lang="keep" onmouseover='seeOver(this)' onmouseout='seeOut(this)'>
+					<div class="notice edit_process" id="pOrder" contentEditable="true"></div>
+					<div class="notice edit_process" id="host" contentEditable="true"></div>
+					<div class="notice edit_process" id="port" contentEditable="true"></div>
+					<div class="notice edit_process" id="usedMemory" contentEditable="true"></div>
+					<div class="notice edit_process" id="online" contentEditable="true"></div>
+					<div class="notice edit_process act">
+						<button onclick="add_process();" class="action_btn">添加</button>
+						<button onclick="resert_process();" class="action_btn">重置</button>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- 进程列表结束 -->
+		<!-- 黑白名单配置 -->
+		<div id="forbidden_config">
+			<input type="hidden" id="forbidden_from" />
+			<input type="hidden" id="forbidden_value" />
+			<h3>黑白名单配置</h3>
+			<p>
+			这里可以自定义配置白名单或者黑名单
+			<br/><br/>
+			<input type="radio" name="forbidden_type" value="0" checked="checked"/> 关闭: 关闭黑名单或是白名单模式
+			<br/><br/>
+			<input type="radio" name="forbidden_type" value="1"/> 白名单: 只允许白名单内的ip地址访问
+			<br/><br/>
+			<input type="radio" name="forbidden_type" value="2"/> 黑名单: 黑名单内的ip地址不能够访问
+			<br/><br/>
+			备注: 如果要模糊匹配的话用*号代替,可以添加区间如192.168.1.2 - 192.168.1.*
+			</p>
+			<div id="action_config">
+		        <ul id="action_config_items">
+			       	<li class="ip" id="frist_config">
+			       		<span class="ip_fields"><input type="text" class="ip_field"/>.<input type="text" class="ip_field"/>.<input type="text" class="ip_field"/>.<input type="text" class="ip_field"/></span><a href="javascript:;" class="add_forbidden_between forbidden_action"> &gt; </a>
+			          	<a href="javascript:;" class="drop_forbidden_between forbidden_action" style="display:none;"> &lt; </a>
+			          	<a href="javascript:;" class="add_forbidden_config forbidden_action" id="add_forbidden_config"> + </a>
+			          	<a href="javascript:;" class="drop_forbidden_config forbidden_action" id="drop_forbidden_config" style="display:none;" > - </a>
+			         </li>             
+	        	</ul>
+	        	<div id="closeBtn" class="closeBtn">关闭</div>
+	        	<a href="javascript:void(0);" id="submit_forbidden" class="submit_forbidden">确定</a>
+	        </div>	
+  	 	</div>
+  	 	</div>
+		<div id="footer">
+			<div id="copy">
+				此程序由<span><a href="http://www.dmdq.org" title="代码大全" target="_blank" class="factory">代码大全</a></span>DMDQ.ORG 友情提供
+ 				<span style="display:none;">
+	           <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5781418'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D5781418%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  	 	       </span>
+			</div>
+		</div>
+</body>
+</html>

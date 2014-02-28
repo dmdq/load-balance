@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apps scanPeriod="10" >
+	<app name="刀剑神域" id="33ace070-024a-4732-9f23-2d2cb0adacae" url="http://www.daojian.com" order="0">
+		<regions>
+			<region name="刀剑一区" id="2fb3fda9-a66a-40a9-9941-8dfd13a8f1c1" order="0">
+				<server id="dd348b4e-e09f-4b07-917f-bf90e441619b" name="刀剑一服" version="v1.0.0 20131104" >
+					<process id="10:dd:b1:c0:3b:84-400" host="192.168.1.88" port="1860" online="0" usedMemory="100" status="101" order="0" />
+					<process id="10:dd:b1:c0:3b:84-401" host="192.168.1.188" port="1861" online="0" usedMemory="100" status="101" order="1" />
+					<process id="10:dd:b1:c0:3b:85-402" host="192.168.1.88" port="1862" online="0" usedMemory="100" status="101" order="2" />
+					<process id="10:dd:b1:c0:3b:85-403" host="192.168.1.188" port="1863" online="0" usedMemory="100" status="101" order="3" />
+				</server>
+			</region>
+			<region name="刀剑二区" id="6cc087ae-69ee-46e6-89b6-62681c1ecd70" order="1">
+				<server id="9ce9b4bc-b238-426e-883a-2d6ecbdec2f7" name="刀剑一服" version="v1.0.0 20131104" order="0">
+					<process id="10:dd:b1:c0:3b:86-500" host="192.168.1.8" port="1860" online="0" usedMemory="100" status="101" order="0" />
+					<process id="10:dd:b1:c0:3b:87-501" host="192.168.1.88" port="1861" online="0" usedMemory="100" status="101" order="1" />
+					<process id="10:dd:b1:c0:3b:88-502" host="192.168.1.188" port="1862" online="0" usedMemory="100" status="101" order="2" />
+				</server>
+				<server id="b0068302-6180-4c56-8fab-86eec252e9e1" name="刀剑二服" version="v1.0.0 20131104" order="1">
+					<process id="10:dd:b1:c0:3b:86-600" host="192.168.1.88" port="1860" online="0" usedMemory="100" status="101" order="0" />
+					<process id="10:dd:b1:c0:3b:87-601" host="192.168.1.8" port="1861" online="0" usedMemory="100" status="101" order="1" />
+					<process id="10:dd:b1:c0:3b:88-602" host="192.168.1.188" port="1862" online="0" usedMemory="100" status="101" order="2" />
+				</server>
+				<server id="b0068302-6180-4c56-8fab-86eec252e9ee" name="刀剑三服" version="v1.0.0 20131104" order="2">
+					<process id="10:dd:b1:c0:3b:86-700" host="192.168.1.188" port="1860" online="0" usedMemory="100" status="101" order="0" />
+					<process id="10:dd:b1:c0:3b:87-701" host="192.168.1.88" port="1861" online="0" usedMemory="100" status="101" order="1" />
+					<process id="10:dd:b1:c0:3b:88-702" host="192.168.1.8" port="1862" online="0" usedMemory="100" status="101" order="2" />
+				</server>
+			</region>
+		</regions>
+	</app>
+	<app name="究极火影" id="d19b5f5f-8a25-4a43-91f6-3c701f3fe45b"  url="http://www.huoying.com" order="1">
+		<regions>
+			<region name="android" id="hy360" order="0">
+				<server id="f44c706e-ad18-4fde-b6f1-724b3f45a04c" name="天上人间" version="v1.0.0 20131104" order="0">
+					<process id="10:dd:b1:c0:3b:82-100" host="192.168.1.100" port="1760" online="0" usedMemory="100" status="101" order="0"/>
+					<process id="10:dd:b1:c0:3b:82-101" host="192.168.1.100" port="1761" online="0" usedMemory="100" status="101" order="1"/>
+					<process id="10:dd:b1:c0:3b:82-102" host="192.168.1.100" port="1762" online="0" usedMemory="100" status="101" order="2"/>
+					<process id="10:dd:b1:c0:3b:82-103" host="192.168.1.100" port="1763" online="0" usedMemory="100" status="101" order="3"/>
+					<process id="10:dd:b1:c0:3b:82-104" host="192.168.1.101" port="1764" online="0" usedMemory="100" status="101" order="4"/>
+					<process id="10:dd:b1:c0:3b:82-105" host="192.168.1.101" port="1765" online="0" usedMemory="100" status="101" order="5"/>
+					<process id="10:dd:b1:c0:3b:82-106" host="192.168.1.101" port="1766" online="0" usedMemory="100" status="101" order="6"/>
+					<process id="10:dd:b1:c0:3b:82-107" host="192.168.1.102" port="1767" online="0" usedMemory="100" status="101" order="7"/>
+					<process id="10:dd:b1:c0:3b:82-108" host="192.168.1.102" port="1768" online="0" usedMemory="100" status="101" order="8"/>
+					<process id="10:dd:b1:c0:3b:82-109" host="192.168.1.102" port="1769" online="0" usedMemory="100" status="101" order="9"/>
+				</server>
+				<server id="4df13968-c571-40c5-92fb-01e09a49c6eb" name="瑶池仙境" version="v1.0.0 20131104" order="1">
+					<process id="10:dd:b1:c0:3b:83-200" host="192.168.1.100" port="1860" online="0" usedMemory="100" status="101" order="0"/>
+					<process id="10:dd:b1:c0:3b:83-201" host="192.168.1.100" port="1861" online="0" usedMemory="100" status="101" order="1"/>
+					<process id="10:dd:b1:c0:3b:83-202" host="192.168.1.100" port="1862" online="0" usedMemory="100" status="101" order="2"/>
+					<process id="10:dd:b1:c0:3b:83-203" host="192.168.1.101" port="1863" online="0" usedMemory="100" status="101" order="3"/>
+					<process id="10:dd:b1:c0:3b:83-204" host="192.168.1.101" port="1864" online="0" usedMemory="100" status="101" order="4"/>
+					<process id="10:dd:b1:c0:3b:83-205" host="192.168.1.101" port="1865" online="0" usedMemory="100" status="101" order="5"/>
+					<process id="10:dd:b1:c0:3b:83-206" host="192.168.1.101" port="1866" online="0" usedMemory="100" status="101" order="6"/>
+					<process id="10:dd:b1:c0:3b:83-207" host="192.168.1.102" port="1867" online="0" usedMemory="100" status="101" order="7"/>
+					<process id="10:dd:b1:c0:3b:83-208" host="192.168.1.102" port="1868" online="0" usedMemory="100" status="101" order="8"/>
+					<process id="10:dd:b1:c0:3b:83-209" host="192.168.1.102" port="1869" online="0" usedMemory="100" status="101" order="9"/>
+				</server>
+				<server id="e54b22b9-1359-4481-a420-4e37d01a78d6" name="忍者传说" version="v1.0.0 20131104" order="2">
+					<process id="10:dd:b1:c0:3b:84-300" host="192.168.1.100" port="1960" online="0" usedMemory="100" status="101" order="0"/>
+					<process id="10:dd:b1:c0:3b:84-301" host="192.168.1.100" port="1961" online="0" usedMemory="100" status="101" order="1"/>
+					<process id="10:dd:b1:c0:3b:84-302" host="192.168.1.100" port="1962" online="0" usedMemory="100" status="101" order="2"/>
+					<process id="10:dd:b1:c0:3b:84-303" host="192.168.1.101" port="1963" online="0" usedMemory="100" status="101" order="3"/>
+					<process id="10:dd:b1:c0:3b:84-304" host="192.168.1.101" port="1964" online="0" usedMemory="100" status="101" order="4"/>
+					<process id="10:dd:b1:c0:3b:84-305" host="192.168.1.101" port="1965" online="0" usedMemory="100" status="101" order="5"/>
+					<process id="10:dd:b1:c0:3b:84-306" host="192.168.1.102" port="1966" online="0" usedMemory="100" status="101" order="6"/>
+					<process id="10:dd:b1:c0:3b:84-307" host="192.168.1.102" port="1967" online="0" usedMemory="100" status="101" order="7"/>
+					<process id="10:dd:b1:c0:3b:84-308" host="192.168.1.102" port="1968" online="0" usedMemory="100" status="101" order="8"/>
+					<process id="10:dd:b1:c0:3b:84-309" host="192.168.1.102" port="1969" online="0" usedMemory="100" status="101" order="9"/>
+				</server>
+			</region>
+			<region name="ios" id="hyios" order="1">
+				<server id="adb03840-022e-45ac-bc17-65b79116381d" name="火的意志" version="v1.0.0 20131104" order="0">
+					<process id="10:dd:b1:c0:3b:82-100" host="192.168.1.100" port="1760" online="0" usedMemory="100" status="101" order="0"/>
+					<process id="10:dd:b1:c0:3b:82-101" host="192.168.1.100" port="1761" online="0" usedMemory="100" status="101" order="1"/>
+					<process id="10:dd:b1:c0:3b:82-102" host="192.168.1.100" port="1762" online="0" usedMemory="100" status="101" order="2"/>
+					<process id="10:dd:b1:c0:3b:82-103" host="192.168.1.100" port="1763" online="0" usedMemory="100" status="101" order="3"/>
+					<process id="10:dd:b1:c0:3b:82-104" host="192.168.1.101" port="1764" online="0" usedMemory="100" status="101" order="4"/>
+					<process id="10:dd:b1:c0:3b:82-105" host="192.168.1.101" port="1765" online="0" usedMemory="100" status="101" order="5"/>
+					<process id="10:dd:b1:c0:3b:82-106" host="192.168.1.101" port="1766" online="0" usedMemory="100" status="101" order="6"/>
+					<process id="10:dd:b1:c0:3b:82-107" host="192.168.1.102" port="1767" online="0" usedMemory="100" status="101" order="7"/>
+					<process id="10:dd:b1:c0:3b:82-108" host="192.168.1.102" port="1768" online="0" usedMemory="100" status="101" order="8"/>
+					<process id="10:dd:b1:c0:3b:82-109" host="192.168.1.102" port="1769" online="0" usedMemory="100" status="101" order="9"/>
+				</server>
+			</region>
+		</regions>
+	</app>
+</apps>
